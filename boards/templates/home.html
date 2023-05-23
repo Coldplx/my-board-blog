@@ -5,32 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boards</title>
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+    {% comment %} {% bootstrap_javascript %} {% endcomment %}
 </head>
 <body>
 
-<table border="1">
-    <thead>
+<div class="container">
+    <ol class="breadcrumb my-4">
+        <li class="breadcrumb-item active">Boards</li>
+    </ol>
+    <table class="table">
+        <thead class="thead-inverse">
         <tr>
-        <th>Board</th>
-        <th>Posts</th>
-        <th>Topics</th>
-        <th>Last Post</th>
+            <th>Board</th>
+            <th>Posts</th>
+            <th>Topics</th>
+            <th>Last Post</th>
         </tr>
-    </thead>
-    <tbody>
+        </thead>
+        <tbody>
         {% for board in boards %}
-        <tr>
+            <tr>
             <td>
-            {{ board.name }}<br>
-            <small style="color: #888">{{ board.description }}</small>
+                {{ board.name }}
+                <small class="text-muted d-block">{{ board.description }}</small>
             </td>
-            <td>0</td>
-            <td>0</td>
+            <td class="align-middle">0</td>
+            <td class="align-middle">0</td>
             <td></td>
-        </tr>
+            </tr>
         {% endfor %}
-    </tbody>
+        </tbody>
     </table>
-    
+</div>
+
 </body>
 </html>
